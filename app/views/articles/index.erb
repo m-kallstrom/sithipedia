@@ -1,0 +1,23 @@
+<div>
+  <h2>Featured Articles:</h2>
+  <% @featured_articles.each do |article| %>
+    <ul>
+      <li>
+        <h3>  <%= link_to "#{article.title}", @article %> </h3>
+        <%= article.body[0..100] %>...
+      </li>
+    </ul>
+  <% end %>
+</div>
+
+<div>
+  <h2>All Articles:</h2>
+  <% @all_articles.each do |article| %>
+    <ul>
+      <li>
+        <h4> <%= article.title %></h4>
+        <%= article.body[0..100] %>...
+      </li>
+    </ul>
+  <% end %>
+</div>

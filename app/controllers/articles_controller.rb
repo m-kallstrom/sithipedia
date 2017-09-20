@@ -1,8 +1,13 @@
 class ArticlesController < ApplicationController
 
   def index
-    articles = Article.all
-    @last_versions = articles.map(&:versions.last)
+    @all_articles = Article.last_version(Article.all)
+    #which articles????
+    @featured_articles = @all_articles.sample(5)
+  end
+
+  def show
+    @article = Article.find_by(id: params[:id])
   end
 
   def new
