@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   # root '/articles'
-  resources :articles
+
+  resources :articles, only: [:index, :show] do
+    resources :versions, only: [:index, :new, :update]
+  end
 
   resources :users, only: [:new, :create, :edit, :update, :index, :show]
 
