@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   # root '/articles'
 
-  resources :articles, only: [:index, :show] do
-    resources :versions, only: [:index, :new, :update]
+  resources :articles, only: [:new, :create, :index, :show] do
+    resources :versions, only: [:new, :create]
   end
 
   resources :users, only: [:new, :create, :edit, :update, :index, :show]
