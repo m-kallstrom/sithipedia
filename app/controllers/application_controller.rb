@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
     redirect_to unauthorized_path unless current_user && current_user.rank == "Lord"
   end
 
-  def authorize_editor(version)
-    redirect_to articles_path (current_user.id == version.id) || current_user.rank == "Lord"
+  def authorize_editor(article)
+    redirect_to articles_path unless (current_user.id == article.user_id) || (current_user.rank == "Lord")
   end
 
 end
