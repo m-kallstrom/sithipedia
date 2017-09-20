@@ -1,3 +1,7 @@
 <h1>Eligible Candidates for Lordship</h1>
+
 <div class="list">
-  <% @users %>
+  <% @eligible_users.each do |master| %>
+    <%= link_to "Make #{master.username} a Dark Lord of the Sith?", edit_user_path(master.id) %>
+  <% end %>
+</div>

@@ -1,1 +1,9 @@
-<!-- this is the page where a sith lord will change the status of a master -->
+<h1>Promotion Ceremony of Evil</h1>
+<p>Are you sure you want to make <%= @user.username %> a Dark Lord of the Sith?</p>
+
+<div class="form">
+  <%= form_tag(edit_user_path(@user.id, method: "patch") do %>
+    <%= submit_tag "I'm certain they are sufficiently evil." %>
+  % end %>
+</div>
+

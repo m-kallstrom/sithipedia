@@ -16,19 +16,25 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @user = User.find(params[:id])
   end
 
   def update
-    @users = Users.where(rank: )
-
+    @user = User.find(params[:id])
+    @user.rank == "Lord"
+    if @user.save
+      redirect_to
+    else
+      @errors = @user.errors.full_messages
+      render template: 'edit'
+    end
   end
 
   def show
   end
 
   def index
-
+    @eligible_users = User.where(rank: "Master")
   end
 
   private
