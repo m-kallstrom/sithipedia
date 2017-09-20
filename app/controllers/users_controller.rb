@@ -20,12 +20,15 @@ class UsersController < ApplicationController
   end
 
   def update
+    @users = Users.where(rank: )
+
   end
 
   def show
   end
 
   def index
+
   end
 
   private
