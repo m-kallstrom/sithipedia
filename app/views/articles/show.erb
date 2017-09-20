@@ -1,0 +1,9 @@
+<div>
+  <p>Title:</p>
+  <h2> <%= @article.title %></h2>
+  <small>author: <%= @article.editor.username %></small>
+  <p>content:</p>
+  <p><%= @article.body %></p>
+  <p>category:</p>
+  <%= @article.category.name %>
+</div>
