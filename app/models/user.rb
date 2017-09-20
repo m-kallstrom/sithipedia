@@ -3,4 +3,6 @@ class User < ApplicationRecord
   has_many :versions, foreign_key: :editor_id
 
   has_secure_password
+
+
 end
