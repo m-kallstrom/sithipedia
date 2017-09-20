@@ -7,11 +7,15 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize_sith
-    redirect_to '/login' unless current_user
+    redirect_to login_path unless current_user
   end
 
   def authorize_lord
-    redirect_to '/unauthorized' unless current_user && current_user.rank == "Lord"
+    redirect_to unauthorized_path unless current_user && current_user.rank == "Lord"
+  end
+
+  def authorize_editor(version)
+    redirect_to articles_path (current_user.id == version.id) || current_user.rank == "Lord"
   end
 
 end
