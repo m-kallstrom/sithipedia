@@ -1,7 +1,7 @@
 # README
 
 # Sithipedia
-### By Marla, Gwynne, and Dimitri
+### By Marla, Gwynne, and Dmitri
 
 Our client has asked us to design a Wikipedia type application for Star Wars siths of the Dark Side.
 
