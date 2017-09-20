@@ -1,0 +1,6 @@
+<% form_for(@version) do |form| %>
+  Title: <%= form.text_field :title %>
+  Body: <%= form.text_area :body %>
+  Category: <%= form.text_area :category %>
+  Submit: <%= form.submit "Submit" %>
+<% end %>
