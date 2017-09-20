@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :authorize_lord, only: [:edit, :update, :index]
+
   def new
     @user = User.new
   end
@@ -21,12 +23,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.rank == "Lord"
+    @user.rank = "Lord"
     if @user.save
-      redirect_to
+      redirect_to users_path
     else
       @errors = @user.errors.full_messages
-      render template: 'edit'
+      render template: :edit
     end
   end
 
@@ -34,7 +36,10 @@ class UsersController < ApplicationController
   end
 
   def index
-    @eligible_users = User.where(rank: "Master")
+    @eligible_users = User.where(rank: "master")
+  end
+
+  def unauthorized
   end
 
   private
