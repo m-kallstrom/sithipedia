@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
 
   def index
-    @all_articles = Article.last_version(Article.all)
-    @featured_articles = @all_articles.sample(5)
+    @articles = Article.all
+    @featured_articles = @articles.sample(5)
   end
 
   def search
@@ -10,12 +10,58 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Version.find_by(id: params[:id])
+    @article = Article.find_by(id: params[:id])
   end
 
   def new
-    @new_version = Version.new
+    authorize_sith
+    @article = Article.new
   end
 
+  def create
+    authorize_sith
+    @article = Article.new(params_w_author_editor)
+    if @article.save
+      redirect_to '/articles'
+    else
+      @errors = @article.errors.full_messages
+      render '/articles/new'
+    end
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+    authorize_editor(@article)
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    authorize_editor(@article)
+    if @article.update(params_with_editor)
+      redirect_to @article
+    else
+      @errors = @article.errors.full_messages
+      render :edit
+    end
+
+  end
+
+  private
+    def article_params
+      attrs = params.require(:article).permit(:title, :body)
+      attrs.merge({category_id: get_category_id})
+    end
+
+    def params_with_editor
+      article_params.merge({editor_id: current_user.id})
+    end
+
+    def params_w_author_editor
+      params_with_editor.merge({author_id: current_user.id})
+    end
+
+    def get_category_id
+      Category.find_or_create_by(name: params[:article][:category]).id
+    end
 
 end

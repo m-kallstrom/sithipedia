@@ -5,4 +5,5 @@ class Version < ApplicationRecord
   has_many :placements
   has_many :photos, through: :placements
 
+  validates :title, :body, :editor_id, {presence: true}
 end
