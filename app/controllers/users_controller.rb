@@ -18,10 +18,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    authorize_self_or_lord
     @user = User.find(params[:id])
   end
 
   def update
+    authorize_self_or_lord
     @user = User.find(params[:id])
     @user.rank = "Lord"
     if @user.save
@@ -34,6 +36,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    authorize_self_or_lord
   end
 
   def index
