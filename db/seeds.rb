@@ -195,11 +195,11 @@ categories.length.times do |n|
   Category.create!(name: categories[n])
   master = masters.sample
 
-  article1 = Article.create!( editor_id: master.id,
+  article1 = Article.create!( author_id: master.id,
+                              editor_id: master.id,
                               title: "Draft: " + m_titles[n],
                               body: "This is still a draft: " + m_bodies[n],
                               category_id: n+1,
-                              article_id: article1.id,
                               published: false )
 
 
@@ -207,23 +207,21 @@ categories.length.times do |n|
                    title: m_titles[n],
                    body: m_bodies[n],
                    category_id: n+1,
-                   article_id: article1.id,
                    published: true )
 
   article1.update( editor_id: lords.sample.id,
                    title: l_titles[n],
                    body: l_bodies[n],
                    category_id: n+1,
-                   article_id: article1.id,
                    published: true )
 
   master = masters.sample
 
-  article2 = Article.create!( editor_id: master.id,
+  article2 = Article.create!( author_id: master.id,
+                              editor_id: master.id,
                               title: "Draft: " + seed_titles1[n],
                               body: "This is still a draft: " + seed_bodies1[n],
                               category_id: n+1,
-                              article_id: article2.id,
                               published: false )
 
 
@@ -231,17 +229,16 @@ categories.length.times do |n|
                   title: seed_titles1[n],
                   body: seed_bodies1[n],
                   category_id: n+1,
-                  article_id: article2.id,
                   published: true )
 
 
   master = masters.sample
 
-  article3 = Article.create!( editor_id: master.id,
+  article3 = Article.create!( author_id: master.id,
+                              editor_id: master.id,
                               title: "Draft: " + seed_titles1[n],
                               body: "This is still a draft: " + seed_bodies1[n],
                               category_id: n+1,
-                              article_id: article3.id,
                               published: false )
 
 
@@ -249,15 +246,14 @@ categories.length.times do |n|
                    title: seed_titles2[n],
                    body: seed_bodies2[n],
                    category_id: n+1,
-                   article_id: article3.id,
                    published: true )
 
 
-  unpublished_article = Article.create!(editor_id: master.id,
+  unpublished_article = Article.create!(author_id: master.id,
+                                        editor_id: master.id,
                                         title: Faker::StarWars.quote,
                                         body: Faker::StarWars.wookie_sentence,
                                         category_id: n+1,
-                                        article_id: unpublished_article.id,
                                         published: false)
 
 end
@@ -280,11 +276,11 @@ faker_categories.length.times do |n|
 
   Category.create!(name: categories[n])
 
-  faker_article1 = Article.create!( editor_id: master.id,
+  faker_article1 = Article.create!( author_id: master.id,
+                                    editor_id: master.id,
                                     title: title_array[n],
                                     body: quote,
                                     category_id: n+1,
-                                    article_id: faker_article1.id,
                                     published: true )
 
 
@@ -299,25 +295,23 @@ faker_categories.length.times do |n|
   title_array << vehicle = Faker::StarWars.vehicle
 
 
-  faker_article2 = Article.create!( editor_id: master.id,
+  faker_article2 = Article.create!( author_id: master.id,
+                                    editor_id: master.id,
                                     title: title_array[n],
                                     body: quote,
                                     category_id: n+1,
-                                    article_id: faker_article2.id,
                                     published: true )
 
   faker_article2.update(editor_id: lords.sample.id,
                         title: title_array[n] + "--marked for review",
                         body: quote + " --I'm not sure of the value of such an article and have flagged it for review.",
                         category_id: n+1,
-                        article_id: faker_article2.id,
                         published: true )
 
   faker_article2.update( editor_id: 1,
                          title: title_array[n] + "--Marked for Deletion",
                           body: "You lack of citations disturbs me. This is not fit for publication. You must cite more sources and be more evil. --EP",
                           category_id: n+1,
-                          article_id: faker_article2.id,
                           published: true)
 
   master = masters.sample
@@ -330,11 +324,11 @@ faker_categories.length.times do |n|
   title_array << species = Faker::StarWars.specie
   title_array << vehicle = Faker::StarWars.vehicle
 
-  faker_article3 = Article.create!( editor_id: master.id,
+  faker_article3 = Article.create!( author_id: master.id,
+                                    editor_id: master.id,
                                     title: title_array[n],
                                     body: quote,
                                     category_id: n+1,
-                                    article_id: faker_article3.id,
                                     published: true )
 
 
@@ -342,7 +336,6 @@ faker_categories.length.times do |n|
                           title: title_array[n] + "--marked for review",
                           body: quote + " --I'm not sure of the value of such an article and have flagged it for review.",
                           category_id: n+1,
-                          article_id: faker_article3.id,
                           published: true )
 
 end
