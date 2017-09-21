@@ -1,0 +1,10 @@
+<% if defined?(@errors) %>
+  <%= render '/partials/errors', errors: @errors %>
+<% end %>
+
+<%= form_for @article do |form| %>
+  Title: <%= form.text_field :title %>
+  Body: <%= form.text_area :body %>
+   <!-- Category shit  -->
+  <%= form.submit %>
+<% end %>

@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
 
   def index
-    @all_articles = Article.last_version(Article.all)
-    @featured_articles = @all_articles.sample(5)
+    @articles = Article.all
+    @featured_articles = @articles.sample(5)
   end
 
   def search
@@ -10,17 +10,17 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Version.find_by(id: params[:id])
+    @article = Article.find_by(id: params[:id])
   end
 
   def new
-    # add authorization
+    authorize_sith
     @article = Article.new
   end
 
   def create
-    # add authorization
-    @article = Article.new(article_params)
+    authorize_sith
+    @article = Article.new(params_with_author)
     if @article.save
       p "**********************the article has saved"
       redirect_to '/articles'
@@ -32,10 +32,30 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find(params[:id])
+    authorize_editor(@article)
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    authorize_editor(@article)
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      @errors = @article.errors.full_messages
+      render :edit
+    end
+
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :body)
   end
 
+  def params_with_author
+    article_params.merge({author_id: current_user.id})
+  end
 
 end
