@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require 'rails_helper'
 
 RSpec.describe Photo, type: :model do

@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+ - 2.2
+
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $GITHUB_TOKEN
+#   on:
+#     branch: master
