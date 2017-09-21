@@ -32,7 +32,7 @@ class Article < ApplicationRecord
       title: self.title,
       body: self.body,
       published: self.published,
-      category_id: Category.first.id,
+      category_id: self.category_id,
       editor_id: self.editor_id
     })
   end
