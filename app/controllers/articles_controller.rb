@@ -14,7 +14,27 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @new_version = Version.new
+    # add authorization
+    @article = Article.new
+  end
+
+  def create
+    # add authorization
+    @article = Article.new(article_params)
+    if @article.save
+      p "**********************the article has saved"
+      redirect_to '/articles'
+    else
+      p "**********************the article did not save"
+      p @article.errors.full_messages
+      @errors = @article.errors.full_messages
+      render '/articles/new'
+    end
+  end
+
+  private
+  def article_params
+    params.require(:article).permit(:title, :body)
   end
 
 
