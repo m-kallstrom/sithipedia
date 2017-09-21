@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'rake'
+  gem 'rails_helper'
 end
 
 group :development do
