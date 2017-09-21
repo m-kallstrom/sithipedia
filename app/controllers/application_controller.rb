@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_editor(article)
+    flash[:notice] = "You do not have this permission."
     redirect_to articles_path unless (current_user.id == article.author_id) || (current_user.rank == "Lord")
   end
 
