@@ -1,8 +1,7 @@
 <div>
   <p>Title:</p>
   <h2> <%= @article.title %></h2>
-  <small>author: <%= @article.editor.username %></small>
-  <p>content:</p>
+  <small>author: <%= @article.author.username %></small>
   <p><%= @article.body %></p>
   <p>category:</p>
   <%= @article.category.name %>

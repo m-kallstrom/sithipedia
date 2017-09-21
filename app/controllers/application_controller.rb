@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_editor(article)
-    redirect_to articles_path unless (current_user.id == article.user_id) || (current_user.rank == "Lord")
+    redirect_to articles_path unless (current_user.id == article.author_id) || (current_user.rank == "Lord")
   end
 
 end
