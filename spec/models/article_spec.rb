@@ -10,12 +10,12 @@ RSpec.describe Article, type: :model do
 
   let(:category) {Category.create(name: "Test Category")}
 
-  let(:article) {Article.new(
-                            author_id: 1,
-                            editor_id: 1,
+  let(:article) {Article.create(
+                            author_id: author.id,
+                            editor_id: author.id,
                             title: "Test",
                             body: "This is a test paragraph",
-                            category_id: 1,
+                            category_id: category.id,
                             published: true
                            )}
   it "has a title" do
