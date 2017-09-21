@@ -1,7 +1,7 @@
 <div>
   <h2>Title: <%= @article.title %></h2>
   <small>author: <%= @article.author.username %></small>
-  <p><%= @article.body %></p>
+  <p><%= @article.body.html_safe %></p>
   <p>category:<%= @article.category.name %></p>
    <%= link_to 'Edit', edit_article_path(@article) %>
    <%= link_to 'More articles', articles_path %>
