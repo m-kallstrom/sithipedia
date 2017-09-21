@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
+    articles = Article.all.select{|article| article.published}
+    @articles = articles.sort {|article1, article2| article2.updated_at <=> article1.updated_at}
     @featured_articles = @articles.sample(5)
   end
 
@@ -20,6 +21,7 @@ class ArticlesController < ApplicationController
 
   def create
     authorize_sith
+    p params
     @article = Article.new(params_w_author_editor)
     if @article.save
       redirect_to '/articles'
@@ -48,7 +50,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      attrs = params.require(:article).permit(:title, :body)
+      attrs = params.require(:article).permit(:title, :body, :published)
       attrs.merge({category_id: get_category_id})
     end
 
