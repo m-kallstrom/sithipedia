@@ -1,0 +1,1 @@
+category_controller_spec.rb
