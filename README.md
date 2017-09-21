@@ -2,7 +2,7 @@
 
 # Sithipedia
 ### By Marla, Gwynne, and Dmitri
-
+[![Coverage Status](https://coveralls.io/repos/github/chi-nighthawks-2017/sithipedia/badge.svg?branch=master)](https://coveralls.io/github/chi-nighthawks-2017/sithipedia?branch=master)
 Our client has asked us to design a Wikipedia type application for Star Wars siths of the Dark Side.
 
 ## MVP User stories
