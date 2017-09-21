@@ -48,7 +48,8 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body)
+      attrs = params.require(:article).permit(:title, :body)
+      attrs.merge({category_id: get_category_id})
     end
 
     def params_with_editor
@@ -57,6 +58,10 @@ class ArticlesController < ApplicationController
 
     def params_w_author_editor
       params_with_editor.merge({author_id: current_user.id})
+    end
+
+    def get_category_id
+      Category.find_or_create_by(name: params[:article][:category]).id
     end
 
 end
