@@ -1,6 +1,11 @@
-<% form_for(@version) do |form| %>
+<% if defined?(errors) && errors.any? %>
+  <%= render '/partials/errors' %>
+<% end %>
+
+<%= form_with model: @version do |form| %>
   Title: <%= form.text_field :title %>
   Body: <%= form.text_area :body %>
   Category: <%= form.text_area :category %>
   Submit: <%= form.submit "Submit" %>
 <% end %>
+

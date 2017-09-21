@@ -1,7 +1,17 @@
 class VersionsController < ApplicationController
 
   def new
-    @version = Version.new
+    if logged_in?
+      if defined?(version)
+        @version = version
+      else
+        @version = Version.new
+      end
+      render '/versions/new'
+    else
+      @errors = ["You must be logged in to take this action."]
+      redirect_to '/login', locals: {errors: @errors}
+    end
   end
 
   # this route in some respects is the articles/edit route

@@ -1,3 +1,7 @@
+<% if defined?(errors) && errors.any? %>
+  <%= render '/partials/errors' %>
+<% end %>
+
 <h1>Log into your account</h1>
 <%= form_tag '/login' do %>
 

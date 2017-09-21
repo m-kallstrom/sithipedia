@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     redirect_to '/unauthorized' unless current_user.rank == "Lord"
   end
 
+  def logged_in?
+    current_user
+  end
+
 end

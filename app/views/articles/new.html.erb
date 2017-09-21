@@ -1,2 +1,12 @@
 <h1>Create a new article</h1>
-<%= render '/partials/form' %>
+<% if defined?(errors) && errors.any? %>
+  <%= render '/partials/errors' %>
+<% end %>
+
+<%= form_with model: @article do |form| %>
+  Title: <%= form.text_field :title %>
+  Body: <%= form.text_area :body %>
+  Category: <%= form.text_area :category_id %>
+  Submit: <%= form.submit "Submit" %>
+<% end %>
+
