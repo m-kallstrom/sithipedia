@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/articles/search' => 'articles#search'
   resources :articles, except: [:delete] do
-    # resources :versions, only: [:index, :new, :update]
+    resources :versions, only: [:index]
   end
 
 

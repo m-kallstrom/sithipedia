@@ -4,6 +4,8 @@ class Article < ApplicationRecord
 
   validates :title, :body, {presence: true}
 
+  after_save :create_version
+
   def self.last_version(array)
     array.map { |article| article.versions.last }
   end
@@ -18,6 +20,18 @@ class Article < ApplicationRecord
     end
     return nil if word == "" || found == []
     Article.last_version(found)
+  end
+
+  private
+
+  def create_version
+    self.versions.create!({
+      title: self.title,
+      body: self.body,
+      published: self.published,
+      category_id: Category.first.id,
+      editor_id: User.first.id
+    })
   end
 end
 
