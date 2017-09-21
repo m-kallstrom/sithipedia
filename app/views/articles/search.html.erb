@@ -4,7 +4,7 @@
     <% @articles.each do |article| %>
     <li> <%= link_to "#{article.title}", article_path(article.id) %>
       <br>
-      <%= article.body[0..50].html_safe %>
+      <%= article.body[0..50] %>
     </li>
     <% end %>
   </ul>
