@@ -20,13 +20,10 @@ class ArticlesController < ApplicationController
 
   def create
     authorize_sith
-    @article = Article.new(params_with_author)
+    @article = Article.new(params_w_author_editor)
     if @article.save
-      p "**********************the article has saved"
       redirect_to '/articles'
     else
-      p "**********************the article did not save"
-      p @article.errors.full_messages
       @errors = @article.errors.full_messages
       render '/articles/new'
     end
@@ -40,7 +37,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     authorize_editor(@article)
-    if @article.update(article_params)
+    if @article.update(params_with_editor)
       redirect_to @article
     else
       @errors = @article.errors.full_messages
@@ -50,12 +47,16 @@ class ArticlesController < ApplicationController
   end
 
   private
-  def article_params
-    params.require(:article).permit(:title, :body)
-  end
+    def article_params
+      params.require(:article).permit(:title, :body)
+    end
 
-  def params_with_author
-    article_params.merge({author_id: current_user.id})
-  end
+    def params_with_editor
+      article_params.merge({editor_id: current_user.id})
+    end
+
+    def params_w_author_editor
+      params_with_editor.merge({author_id: current_user.id})
+    end
 
 end
