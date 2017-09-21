@@ -2,7 +2,7 @@
   <p>Title:</p>
   <h2> <%= @article.title %></h2>
   <small>author: <%= @article.author.username %></small>
-  <p><%= @article.body %></p>
+  <p><%= @article.body.html_safe %></p>
   <p>category:</p>
   <%= @article.category.name %>
 </div>

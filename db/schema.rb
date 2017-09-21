@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170921021843) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title", null: false
-    t.string "body", null: false
+    t.text "body", null: false
     t.integer "category_id"
     t.boolean "published", default: false, null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
