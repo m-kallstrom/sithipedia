@@ -1,0 +1,19 @@
+<h1>Profile for <%= @user.username %></h1>
+<h4>Joined <%= @user.created_at %></h4>
+
+<% articles = @user.articles.select {|article| article.published} %>
+<% published_articles = articles.sort {|article1, article2| article2.updated_at <=> article1.updated_at} %>
+
+<h3>Published Articles</h3>
+<ul><% published_articles.each do |article| %>
+  <li><%= article.title %> by <%= article.author.username %></li>
+  <% end %>
+</ul>
+
+<h3>My Drafts</h3>
+<% drafts = @user.articles.select {|article| !article.published} %>
+<ul><% drafts.each do |article| %>
+  <li><%= link_to #{article.title}, show_article)path %> by <%= article.author.username %></li>
+  <% end %>
+</ul>
+
