@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      attrs = params.require(:article).permit(:title, :body, :published)
+      attrs = params.require(:article).permit(:title, :body, :published, :picture)
       attrs.merge({category_id: get_category_id})
     end
 
