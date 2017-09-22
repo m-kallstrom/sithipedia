@@ -13,6 +13,7 @@
   <%= form.label(:published, "Save as draft.") %>
   <%= form.radio_button(:published, true) %>
   <%= form.label(:published, "Publish!") %>
+  <%= form.file_field :picture %>
 
   <%= form.submit %>
 <% end %>

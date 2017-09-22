@@ -7,6 +7,15 @@ class Article < ApplicationRecord
 
   after_save :create_version
 
+  has_attached_file :picture, styles: {
+    thumb: '100x100',
+    medium: '300x300',
+    large: '600x600'
+  }
+
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
+
   attr_accessor :editor_id
 
   def self.last_version(array)

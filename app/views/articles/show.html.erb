@@ -3,6 +3,8 @@
   <small>author: <%= @article.author.username %></small>
   <br>
   <p><%= @article.body.html_safe %></p>
+   <%= image_tag @article.picture(:large) %>
+
   <p>category: <%= @article.category.name %></p>
   <%= link_to 'Edit', edit_article_path(@article) %> |
   <%= link_to 'More articles', articles_path %>
@@ -13,7 +15,6 @@
   <% if @article.versions.length >= 2 %>
     <%= form_tag("/articles/#{@article.id}/compare", method: "get") do |form| %>
     Select version number:  <%= collection_select(:version, :version_id, @article.versions, :id, :id) %>
-<!-- #stretch challenge: exclude itself -->
     <%= submit_tag("Compare these versions") %>
   <% end %>
 <% end %>

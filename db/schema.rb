@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921021843) do
+ActiveRecord::Schema.define(version: 20170922202537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20170921021843) do
     t.text "body", null: false
     t.integer "category_id"
     t.boolean "published", default: false, null: false
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
     t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
