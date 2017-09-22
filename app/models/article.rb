@@ -14,9 +14,6 @@ class Article < ApplicationRecord
   end
 
   def self.search(word)
-    # found = self.where("title like ?", '%#{word}%')
-    # OR body like ?", word,
-    # select * from where title like '%#{word}%' OR body like '%#{word}%'
     word = word.downcase
     found = Article.all.select do |article|
       article.versions.last.title.downcase.include?(word) || article.versions.last.body.downcase.include?(word)
