@@ -1,14 +1,18 @@
 <div class="col-md-6">
   <h2><%= @article.title %></h2>
   <small>author: <%= @article.author.username %></small>
+  <br>
   <p><%= @article.body.html_safe %></p>
-  <p>category:<%= @article.category.name %></p>
-  <%= link_to 'Edit', edit_article_path(@article) %>
+  <p>category: <%= @article.category.name %></p>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
   <%= link_to 'More articles', articles_path %>
-</div>
-<% if @article.versions.length >= 2 %>
-  <%= form_tag("/articles/#{@article.id}/compare", method: "get") do |form| %>
-    <%= collection_select(:version, :version_id, @article.versions, :id, :id) %>
+  <% if current_user && (current_user.rank == "Lord" || current_user.id == @article.author_id) %>
+    | <%= link_to 'Other Versions of this Article', article_versions_path(@article.id) %>
+  <% end %>
+  <br>
+  <% if @article.versions.length >= 2 %>
+    <%= form_tag("/articles/#{@article.id}/compare", method: "get") do |form| %>
+    Select version number:  <%= collection_select(:version, :version_id, @article.versions, :id, :id) %>
 <!-- #stretch challenge: exclude itself -->
     <%= submit_tag("Compare these versions") %>
   <% end %>

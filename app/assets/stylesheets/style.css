@@ -19,12 +19,16 @@ body {
 }
 
 
-h1 h2 {
+h1 {
+  font-family: 'Righteous', cursive;
   color: #F22F08;
+  font-size: 4em;
+  padding: .5em;
 }
 
 h2 {
-
+  color: #F22F08;
+  padding: 1em;
 }
 
 h3 {
@@ -47,7 +51,7 @@ a:link {
 
 a:visited {
     color: #8D2F23;
-    text-shadow: 1px 1px #f4aa42;
+    font-weight: bold;
 }
 
 
@@ -76,3 +80,10 @@ input {
 /*  float: right;*/
 }
 
+#main-layout-container {
+  margin-left: 20px;
+}
+
+li {
+  line-height: 2em;
+}
