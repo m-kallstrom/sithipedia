@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'users#sithauthorization'
+  # root 'users#sithauthorization'
+  root 'articles#index'
 
   get '/articles/search' => 'articles#search'
   get '/articles/:id/compare' => 'versions#compare'

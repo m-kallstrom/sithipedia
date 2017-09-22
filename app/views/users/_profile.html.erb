@@ -7,7 +7,7 @@
 <h3><%= published_articles.count %> Published Articles</h3>
   <ul>
     <% published_articles.each do |article| %>
-      <li><%= link_to article.title, article_url %> by <%= article.author.username %></li>
+      <li><%= link_to article.title, article_url(article.id) %> by <%= article.author.username %></li>
     <% end %>
   </ul>
 
