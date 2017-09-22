@@ -43,7 +43,8 @@ class UsersController < ApplicationController
     @eligible_users = User.where(rank: "Master")
   end
 
-  def unauthorized
+  def sithauthorization
+    redirect_to articles_path if current_user
   end
 
   private
