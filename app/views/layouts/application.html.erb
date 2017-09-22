@@ -5,30 +5,13 @@
     <%= csrf_meta_tags %>
     <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
     <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag    "style", :media => "all" %>
   </head>
 
-  <body>
-    <h1>Sithipedia</h1>
-      <div>
-        <%= form_tag("/articles/search", method:"get") do %>
-          <%= text_field_tag :request %>
-          <%= submit_tag :search %>
-        <% end %>
-        <%= link_to 'Write an Article', new_article_path %>
-      </div>
-      <div class="nav">
-      <a href="/articles">Home</a> |<% if current_user && current_user.rank == "Lord" %>
-        <%= link_to 'Users', users_url %> |
-      <% end %>
-      <% if current_user %>
-        Signed in as <%= link_to current_user.username, current_user %> | <%= link_to "Logout", '/logout' %>
-      <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/users/new' %>
-      <% end %>
-
-
-
-
+  <body id= "bootstrap_overrides">
+      <div id="main-layout-container" class="container-fluid">
+        <h1 id="main-header"><%= link_to "Sithipedia", articles_path %></h1>
+        <%= render partial: 'partials/navigation' %>
       </div>
     <%= yield %>
   </body>

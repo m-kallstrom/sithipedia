@@ -1,10 +1,61 @@
-body {
-  max-width: 700px;
-  margin: 0 auto;
-}
-.insertion {
+
+
+ .insertion {
   background-color: yellow;
 }
+
 .deletion {
   background-color: red;
 }
+
+body {
+  background-color: #212027;
+  /*÷\color: #4782e0;*/
+  color: #f4aa42;
+}
+
+
+h1 h2 {
+  color: #F22F08;
+}
+
+h2 {
+
+}
+
+h3 {
+  color: #8D2F23;
+}
+
+.navbar {
+  background-color: #594346;
+  border: 1px solid #f4aa42;
+
+}
+
+
+
+a:link {
+    color: #F22F08;
+}
+
+
+a:visited {
+    color: #8D2F23;
+    text-shadow: 1px, 1px, #f4aa42;
+}
+
+
+a:hover {
+    color: #4782e0;
+}
+
+
+a:active {
+    color: #4782e0;
+}
+
+#main-header {
+    color: #F22F08;
+}
+
