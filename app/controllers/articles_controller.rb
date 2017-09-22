@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
   def index
     articles = Article.all.select{|article| article.published}
     @articles = articles.sort {|article1, article2| article2.updated_at <=> article1.updated_at}
-    @featured_articles = @articles.sample(5)
+    @featured_articles = @articles.sort_by {|article| article.body.length}.reverse!
+
   end
 
   def search

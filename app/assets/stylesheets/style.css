@@ -2,10 +2,14 @@
 
  .insertion {
   background-color: yellow;
+  color: black;
+  font-weight: bold;
 }
 
 .deletion {
   background-color: red;
+  color: black;
+  font-weight: bold;
 }
 
 body {
@@ -15,12 +19,16 @@ body {
 }
 
 
-h1 h2 {
+h1 {
+  font-family: 'Righteous', cursive;
   color: #F22F08;
+  font-size: 4em;
+  padding: .5em;
 }
 
 h2 {
-
+  color: #F22F08;
+  padding: 1em;
 }
 
 h3 {
@@ -30,6 +38,7 @@ h3 {
 .navbar {
   background-color: #594346;
   border: 1px solid #f4aa42;
+  font-weight: bold;
 
 }
 
@@ -42,7 +51,7 @@ a:link {
 
 a:visited {
     color: #8D2F23;
-    text-shadow: 1px, 1px, #f4aa42;
+    font-weight: bold;
 }
 
 
@@ -56,6 +65,25 @@ a:active {
 }
 
 #main-header {
-    color: #F22F08;
+  color: #F22F08;
+  text-align: center;
 }
 
+#search {
+  display: inline;
+  float: right;
+}
+
+input {
+  background-color: #d6c5c0;
+  color: #212027;
+/*  float: right;*/
+}
+
+#main-layout-container {
+  margin-left: 20px;
+}
+
+li {
+  line-height: 2em;
+}
