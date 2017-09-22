@@ -20,16 +20,16 @@ RSpec.describe ArticlesController, type: :controller do
                                )}
 
   describe "GET #index" do
-    it "responds with status code 200" do
-      get :show, { id: article.id }
-      expect(response).to have_http_status 200
-    end
-  end
-
-  describe "GET #index" do
     it "renders the :index template" do
       get :index
       expect(response).to render_template(:index)
+    end
+  end
+
+  describe "GET #new" do
+    it "renders the new template" do
+      get :new
+      expect(response).to render_template(:new)
     end
   end
 
@@ -37,6 +37,13 @@ RSpec.describe ArticlesController, type: :controller do
     it "responds with status code 422 for invalid input" do
       post :create, { :article => { title: "jedi" } }
       expect(response).to have_http_status 422
+    end
+  end
+
+  describe "GET #show" do
+    it "responds with status code 200" do
+      get :show, { id: article.id }
+      expect(response).to have_http_status 200
     end
   end
 
