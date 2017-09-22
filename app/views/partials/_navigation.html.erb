@@ -17,8 +17,8 @@
         <% end %>
         <%= link_to 'Write an Article', new_article_path %>
       </div>
-      <div class="col-md-4" id= "search">
-        <%= form_tag("/articles/search", method:"get") do %>
+      <div class="col-md-4" class="form-inline">
+        <%= form_tag({:url => "/articles/search", :action => 'create'}, {:class => 'form-inline', :role => "form"}) do %>
           <%= text_field_tag :request %>
           <%= submit_tag :search %>
         <% end %>
