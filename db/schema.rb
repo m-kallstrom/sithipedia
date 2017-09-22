@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170922202537) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title", null: false
-    t.text "body", null: false
+    t.string "body", null: false
     t.integer "category_id"
     t.boolean "published", default: false, null: false
     t.string "picture_file_name"

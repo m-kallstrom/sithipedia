@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # root 'users#sithauthorization'
   root 'articles#index'
 
   get '/articles/search' => 'articles#search'
