@@ -21,7 +21,6 @@ class ArticlesController < ApplicationController
 
   def create
     authorize_sith
-    p params
     @article = Article.new(params_w_author_editor)
     if @article.save
       redirect_to '/articles'
@@ -45,10 +44,10 @@ class ArticlesController < ApplicationController
       @errors = @article.errors.full_messages
       render :edit
     end
-
   end
 
   private
+
     def article_params
       attrs = params.require(:article).permit(:title, :body, :published)
       attrs.merge({category_id: get_category_id})
