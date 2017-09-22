@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @eligible_users = User.where(rank: "master")
+    @eligible_users = User.where(rank: "Master")
   end
 
   def unauthorized
