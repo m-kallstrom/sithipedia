@@ -1,0 +1,10 @@
+body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.insertion {
+  background-color: yellow;
+}
+.deletion {
+  background-color: red;
+}
