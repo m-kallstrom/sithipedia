@@ -18,18 +18,18 @@ RSpec.describe VersionsController, type: :controller do
                                 published: true
                                )}
 
-  describe "GET #index" do
-    it "renders the :index template" do
-      get :index
-      expect(response).to render_template(:index)
-    end
-  end
+  # describe "GET #index" do
+  #   it "renders the :index template" do
+  #     get :index
+  #     expect(response).to render_template(:index)
+  #   end
+  # end
 
-  describe "GET #show" do
-    it "responds with status code 200" do
-      get :show, { id: version.id }
-      expect(response).to have_http_status 200
-    end
-  end
+  # describe "GET #show" do
+  #   it "responds with status code 200" do
+  #     get :show, { id: version.id }
+  #     expect(response).to have_http_status 200
+  #   end
+  # end
 
 end
