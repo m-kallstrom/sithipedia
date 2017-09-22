@@ -36,10 +36,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    p current_user.id.to_s == params[:id]
-    puts "params id is #{params[:id]}"
-    puts "current user iD is #{current_user.id}"
-    p @user
     authorize_self_or_lord
   end
 
