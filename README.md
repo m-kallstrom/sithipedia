@@ -21,6 +21,7 @@ Our client has asked us to design a Wikipedia type application for Star Wars sit
 * As user, I want to be able to click on a link in the index to view the full article.
 * As a user, I want to be able to see all previous versions of the article.
 * As a user, I want to be able to search for articles by title.
+* As a user, I want to be able to compare two versions of the same article.
 
 #### User Authentication
 * As a user, I want to be able to register and become a Master (registered user).
@@ -46,18 +47,4 @@ Our client has asked us to design a Wikipedia type application for Star Wars sit
 ### Stretch goals
 * As a user, I want to be able to view all articles from a given category.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-* System dependencies
-* Configuration
-* Database creation
-* Database initialization
-* How to run the test suite
-* Services (job queues, cache servers, search engines, etc.)
-* Deployment instructions
-
-* ...
